@@ -20,7 +20,7 @@
         }
 
         h2 {
-            color: #ff4d4d;
+            color: pink;
         }
 
         .btn {
@@ -32,19 +32,19 @@
             border-radius: 5px;
         }
 
-        .yes { background-color: #28a745; color: white; }
-        .no { background-color: #dc3545; color: white; position: absolute; }
+        .yes { background-color: pink; color: white; }
+        .no { background-color: red; color: white; position: absolute; }
 
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Mau nggak jadi pacar aku?</h2>
+        <h2>Marsya mau nggak jadi pacar aku?</h2>
         <img src="https://media0.giphy.com/media/JAZIX7UjiF1ilPSq8R/giphy.gif?cid=6c09b952faj4axg04hz1pnu7jpodv85t1b7mxyqszlmiy976&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" width="150">
         <br>
         <button class="btn yes" onclick="jawabMau()">Mau</button>
-        <button class="btn no" id="btnNo" onmouseover="hindar()">Gamau</button>
+        <button class="btn no" id="btnNo" onmouseover="hindar()">Kagak</button>
     </div>
 
     <script>
@@ -52,14 +52,14 @@
 
         function jawabMau() {
             Swal.fire({
-                title: 'Yay! 🥰',
-                text: 'Makasih udah nerima aku! ❤️',
+                title: 'Horayyy 🥰',
+                text: 'Sipp, kasih tau gw di wangsaf deck',
                 imageUrl: 'https://media0.giphy.com/media/qCT06WLJURMyfsEi2r/giphy.gif?cid=6c09b952q5vf3x9x5itjz3x484yymi8o3gotmhqq65pnl8ri&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g',
                 imageWidth: 150,
                 imageHeight: 150,
-                confirmButtonText: 'Chat Aku di WhatsApp!',
+                confirmButtonText: 'Chat ae buru',
             }).then(() => {
-                window.location.href = 'https://wa.me/6283872466836?text=Aku%20mau%20jadi%20pacar%20kamu%20%3E%3C';
+                window.location.href = 'https://wa.me/6283872466836?text=Gw%20mau%20banh%20jadi%20pacar%20lu%20%3E%3C';
             });
         }
 
