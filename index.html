@@ -84,19 +84,20 @@
             klikGamau++;
             let btnNo = document.getElementById('btnNo');
 
-            if (klikGamau ===119) {
-                let x = Math.random() * (window.innerWidth - 100);
-                let y = Math.random() * (window.innerHeight - 100);
-                btnNo.style.left = `${x}px`;
-                btnNo.style.top = `${y}px`;
-            } else if (klikGamau === 5) {
+            // Selalu kabur
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            btnNo.style.left = `${x}px`;
+            btnNo.style.top = `${y}px`;
+
+            // Kalau udah lebih dari 10 kali (random antara 10-15 kali), munculin alert
+            if (klikGamau > 10 && Math.random() > 0.7) {
                 await Swal.fire({
-                    title: 'Yaudah kalo gamau :’(',
-                    text: 'Aku bakal tetap sayang sama kamu...',
+                    title: 'Ya nggak mau ya, ya udah sih :(',
+                    text: 'Tapi aku tetep sayang kok...',
                     icon: 'info',
                     confirmButtonText: 'Hiks...',
                 });
-                
             }
         }
 
