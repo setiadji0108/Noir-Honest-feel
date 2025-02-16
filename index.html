@@ -62,31 +62,31 @@
             });
         }
 
-        function hindar() {
-            klikGamau++;
-            let btnNo = document.getElementById('btnNo');
+        async function hindar() {
+    klikGamau++;
+    let btnNo = document.getElementById('btnNo');
 
-            if (klikGamau < 5) {
-                let x = Math.random() * (window.innerWidth - 100);
-                let y = Math.random() * (window.innerHeight - 100);
-                btnNo.style.left = `${x}px`;
-                btnNo.style.top = `${y}px`;
-            } else if (klikGamau === 5) {
-                Swal.fire({
-                    title: 'Harus mauuu! 😡',
-                    text: 'Jangan nolak aku dong!',
-                    icon: 'warning',
-                    confirmButtonText: 'Oke deh',
-                });
-            } else {
-                Swal.fire({
-                    title: 'Yaudah kalo gamau :’(',
-                    text: 'Aku bakal tetap sayang sama kamu...',
-                    icon: 'info',
-                    confirmButtonText: 'Hiks...',
-                });
-                btnNo.remove();
-            }
+    if (klikGamau < 5) {
+        let x = Math.random() * (window.innerWidth - 100);
+        let y = Math.random() * (window.innerHeight - 100);
+        btnNo.style.left = `${x}px`;
+        btnNo.style.top = `${y}px`;
+    } else if (klikGamau === 5) {
+        await Swal.fire({
+            title: 'Harus mauuu! 😡',
+            text: 'Jangan nolak aku dong!',
+            icon: 'warning',
+            confirmButtonText: 'Oke deh',
+        });
+    } else {
+        await Swal.fire({
+            title: 'Yaudah kalo gamau :’(',
+            text: 'Aku bakal tetap sayang sama kamu...',
+            icon: 'info',
+            confirmButtonText: 'Hiks...',
+        });
+        btnNo.remove();
+    }
         }
     </script>
 
