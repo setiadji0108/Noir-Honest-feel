@@ -40,7 +40,6 @@
             background-color: red; 
             color: white; 
             position: absolute; 
-            transition: all 0.3s ease; /* Biar lebih smooth pindahnya */
         }
 
         img {
@@ -84,20 +83,22 @@
         async function hindar() {
             klikGamau++;
             let btnNo = document.getElementById('btnNo');
+
             if (klikGamau < 5) {
                 let x = Math.random() * (window.innerWidth - 100);
                 let y = Math.random() * (window.innerHeight - 100);
                 btnNo.style.left = `${x}px`;
                 btnNo.style.top = `${y}px`;
-            } 
-            else if (klikGamau === 5) {
+            } else if (klikGamau === 5) {
                 await Swal.fire({
                     title: 'Yaudah kalo gamau :’(',
                     text: 'Aku bakal tetap sayang sama kamu...',
                     icon: 'info',
                     confirmButtonText: 'Hiks...',
                 });
-    btnNo.remove();
+                btnNo.remove();
+            }
+        }
 
         // Autoplay Musik Saat User Interaksi
         document.body.addEventListener('click', function() {
