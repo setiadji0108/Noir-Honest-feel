@@ -9,14 +9,17 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
             color: white;
             background-image: url('image.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height:100vh;
-            background-attachment:fixed;
+            height: 100vh;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         h2 {
@@ -33,7 +36,17 @@
         }
 
         .yes { background-color: pink; color: white; }
-        .no { background-color: red; color: white; position: absolute; }
+        .no { 
+            background-color: red; 
+            color: white; 
+            position: absolute; 
+            transition: all 0.3s ease; /* Biar lebih smooth pindahnya */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
     </style>
 </head>
@@ -41,13 +54,14 @@
 
     <div class="container">
         <h2>Marsya mau nggak jadi pacar aku?</h2>
-        <img src="https://media0.giphy.com/media/JAZIX7UjiF1ilPSq8R/giphy.gif?cid=6c09b952faj4axg04hz1pnu7jpodv85t1b7mxyqszlmiy976&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" width="150">
+        <img src="https://media0.giphy.com/media/JAZIX7UjiF1ilPSq8R/giphy.gif?cid=6c09b952faj4axg04hz1pnu7jpodv85t1b7mxyqszlmiy976&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" width="200">
         <br>
         <button class="btn yes" onclick="jawabMau()">Mau</button>
         <button class="btn no" id="btnNo" onmouseover="hindar()">Kagak</button>
-        <audio id="bgMusic" autoplay loop>
-        <source src="blue.mp3" type="audio/mp3">
-        your browser does not support the audio tag.
+        
+        <audio id="bgMusic" loop>
+            <source src="blue.mp3" type="audio/mp3">
+            Your browser does not support the audio tag.
         </audio>
     </div>
 
@@ -67,25 +81,35 @@
             });
         }
 
-        async function hindar() {
-    klikGamau++;
-    let btnNo = document.getElementById('btnNo');
+        function hindar() {
+            klikGamau++;
+            let btnNo = document.getElementById('btnNo');
 
-    if (klikGamau < 5) {
-        let x = Math.random() * (window.innerWidth - 100);
-        let y = Math.random() * (window.innerHeight - 100);
-        btnNo.style.left = `${x}px`;
-        btnNo.style.top = `${y}px`;
-    } else if (klikGamau === 5) {
-        await Swal.fire({
-            title: 'Yaudah kalo gamau :’(',
-            text: 'Aku bakal tetap sayang sama kamu...',
-            icon: 'info',
-            confirmButtonText: 'Hiks...',
-        });
-        btnNo.remove();
-    }
+            if (klikGamau < 5) {
+                let x = Math.random() * (window.innerWidth - 100);
+                let y = Math.random() * (window.innerHeight - 100);
+                btnNo.style.left = `${x}px`;
+                btnNo.style.top = `${y}px`;
+            } else if (klikGamau === 5) {
+                Swal.fire({
+                    title: 'Yaudah kalo gamau :’(',
+                    text: 'Aku bakal tetap sayang sama kamu...',
+                    icon: 'info',
+                    confirmButtonText: 'Hiks...',
+                }).then(() => {
+                    btnNo.remove();
+                });
+            }
         }
+
+        // Autoplay Musik Saat User Interaksi
+        document.body.addEventListener('click', function() {
+            let bgMusic = document.getElementById("bgMusic");
+            if (bgMusic.paused) {
+                bgMusic.play();
+            }
+        });
+
     </script>
 
 </body>
