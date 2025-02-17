@@ -23,7 +23,7 @@
         }
 
         h2 {
-            color: pink;
+            color: red;
         }
 
         .btn {
@@ -84,13 +84,13 @@
             klikGamau++;
             let btnNo = document.getElementById('btnNo');
 
-            // Selalu kabur
+            
             let x = Math.random() * (window.innerWidth - 100);
             let y = Math.random() * (window.innerHeight - 100);
             btnNo.style.left = `${x}px`;
             btnNo.style.top = `${y}px`;
 
-            // Kalau udah lebih dari 10 kali (random antara 10-15 kali), munculin alert
+            
             if (klikGamau > 10 && Math.random() > 0.7) {
                 await Swal.fire({
                     title: 'Ya nggak mau ya, ya udah sih :(',
@@ -101,7 +101,7 @@
             }
         }
 
-        // Autoplay Musik Saat User Interaksi
+        
         document.body.addEventListener('click', function() {
             let bgMusic = document.getElementById("bgMusic");
             if (bgMusic.paused) {
